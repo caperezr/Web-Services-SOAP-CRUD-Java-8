@@ -16,7 +16,8 @@ import org.demo.model.Administrador;
 import org.demo.model.AdministradorDAOImpl;
 import org.demo.model.Cliente;
 import org.demo.model.ClienteDAOImpl;
-
+import org.demo.model.Producto;
+import org.demo.model.ProductoDAOImpl;
 
 /**
  *
@@ -65,19 +66,20 @@ public class WSConversion {
 //        //TODO write your implementation code here:
 //        return "Hola, " + nombre + ", " + apellido + ". Bienvenido¡";
 //    }
-
     /**
      * Web service operation
      */
     Administrador administrador = new Administrador();
+    Administrador adminLogin = new Administrador();
     AdministradorDAOImpl administradordaoimpl = new AdministradorDAOImpl();
     Cliente cliente = new Cliente();
     ClienteDAOImpl clienteDaoImpl = new ClienteDAOImpl();
+    Producto producto = new Producto();
+    ProductoDAOImpl productoDaoImpl = new ProductoDAOImpl();
 
-
-
+//###############################################################################
     /**
-     * Web service operation
+     * Web service operation Registrar
      */
     @WebMethod(operationName = "registrarAdministrador")
     public String registrarAdministrador(@WebParam(name = "dniAdministrador") String dniAdministrador, @WebParam(name = "nombresAdministrador") String nombresAdministrador, @WebParam(name = "apellidosAdministrador") String apellidosAdministrador, @WebParam(name = "addresAdministrador") String addresAdministrador, @WebParam(name = "telefonoAdministrador") String telefonoAdministrador, @WebParam(name = "userAdministrador") String userAdministrador, @WebParam(name = "passAdministrador") String passAdministrador) {
@@ -92,11 +94,23 @@ public class WSConversion {
         return "El administrador ha sido registrado";
     }
 
+    @WebMethod(operationName = "registrarCliente")
+    public String registrarCliente(@WebParam(name = "dniCliente") String dniCliente, @WebParam(name = "nombresCliente") String nombresCliente, @WebParam(name = "apellidosCliente") String apellidosCliente, @WebParam(name = "direccionCliente") String direccionCliente, @WebParam(name = "telefonoCliente") String telefonoCliente, @WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passCliente") String passCliente) {
+        cliente.setDniCliente(dniCliente);
+        cliente.setNombresCliente(nombresCliente);
+        cliente.setApellidosCliente(apellidosCliente);
+        cliente.setDireccionCliente(direccionCliente);
+        cliente.setTelefonoCliente(telefonoCliente);
+        cliente.setEmailCliente(emailCliente);
+        cliente.setPassCliente(passCliente);
+        clienteDaoImpl.registrarCliente(cliente);
+        return "El cliente ha sido registraddo";
+    }
+//###############################################################################
+
     /**
-     * Web service operation
+     * Web service operation Iniciar Sesion
      */
-    Administrador adminLogin = new Administrador();
-    
     @WebMethod(operationName = "loginAdministrador")
     public Boolean loginAdministrador(@WebParam(name = "userAdministrador") String userAdministrador, @WebParam(name = "passAdministrador") String passAdministrador) {
         Boolean estado;
@@ -109,7 +123,7 @@ public class WSConversion {
 //        }
         return estado;
     }
-    
+
     @WebMethod(operationName = "loginCliente")
     public Boolean loginCliente(@WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passCliente") String passCliente) {
         Boolean estado;
@@ -117,40 +131,57 @@ public class WSConversion {
         estado = cliente.getIdCliente() != 0;
         return estado;
     }
-
+//###############################################################################
     /**
-     * Web service operation
+     * Web service operation listar en general
      */
     @WebMethod(operationName = "listarAdministrador")
     public List<Administrador> listarAdministrador() {
         return administradordaoimpl.listarAdministrador(1);
     }
-    
+
     @WebMethod(operationName = "listarCliente")
     public List<Cliente> listarCliente() {
         return clienteDaoImpl.listarCliente();
     }
 
+    @WebMethod(operationName = "listarProducto")
+    public List<Producto> listarProducto() {
+        return productoDaoImpl.listarProductos();
+    }
+//###############################################################################
     /**
-     * Web service operation
+     * Web service operation listar producto por nombre
+     */
+    @WebMethod(operationName = "listarProductoNombre")
+    public List<Producto> listarProductoNombre(@WebParam(name = "nombreProducto") String nombreProducto) {
+        return productoDaoImpl.buscarProductoNombre(nombreProducto);
+    }
+//###############################################################################
+    /**
+     * Web service operation listar por id
      */
     @WebMethod(operationName = "listarAdministradorId")
     public Administrador listarAdministradorId(@WebParam(name = "idAdministrador") int idAdministrador) {
         //TODO write your implementation code here:
         return administradordaoimpl.listarId(idAdministrador);
     }
-    
-    /**
-     * Web service operation
-     */
+
     @WebMethod(operationName = "listarClienteId")
     public Cliente listarClienteId(@WebParam(name = "idCliente") int idCliente) {
         //TODO write your implementation code here:
         return clienteDaoImpl.listarClienteId(idCliente);
     }
 
+    @WebMethod(operationName = "listarProductoId")
+    public Producto listarProductoId(@WebParam(name = "idProducto") int idProducto) {
+        //TODO write your implementation code here:
+        return productoDaoImpl.buscarProductoId(idProducto);
+    }
+//###############################################################################
+
     /**
-     * Web service operation
+     * Web service operation Actualizar datos
      */
     @WebMethod(operationName = "actualizarDatosAdministrador")
     public String actualizarDatosAdministrador(@WebParam(name = "idAdministrador") int idAdministrador, @WebParam(name = "dniAdministrador") String dniAdministrador, @WebParam(name = "nombresAdministrador") String nombresAdministrador, @WebParam(name = "apellidosAdministrador") String apellidosAdministrador, @WebParam(name = "addresAdministrador") String addresAdministrador, @WebParam(name = "telefonoAdministrador") String telefonoAdministrador, @WebParam(name = "userAdministrador") String userAdministrador, @WebParam(name = "passAdministrador") String passAdministrador) {
@@ -165,12 +196,9 @@ public class WSConversion {
         administradordaoimpl.actualizarAdministrador(administrador);
         return "El administrador ha sido actualizado";
     }
-    
-    /**
-     * Web service operation
-     */
+
     @WebMethod(operationName = "actualizarDatosCliente")
-    public String actualizarDatosCliente(@WebParam(name = "idCliente") int idCliente, @WebParam(name = "dniCliente") String dniCliente, @WebParam(name = "nombresCliente") String nombresCliente, @WebParam(name = "apellidosCliente") String apellidosCliente , @WebParam(name = "direccionCliente") String direccionCliente, @WebParam(name = "telefonoCliente") String telefonoCliente, @WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passwordCliente") String passwordCliente) {
+    public String actualizarDatosCliente(@WebParam(name = "idCliente") int idCliente, @WebParam(name = "dniCliente") String dniCliente, @WebParam(name = "nombresCliente") String nombresCliente, @WebParam(name = "apellidosCliente") String apellidosCliente, @WebParam(name = "direccionCliente") String direccionCliente, @WebParam(name = "telefonoCliente") String telefonoCliente, @WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passwordCliente") String passwordCliente) {
         cliente.setIdCliente(idCliente);
         cliente.setDniCliente(dniCliente);
         cliente.setNombresCliente(nombresCliente);
@@ -182,39 +210,30 @@ public class WSConversion {
         clienteDaoImpl.actualizarCliente(cliente);
         return "El cliente ha sido actualizado";
     }
+//###############################################################################
 
     /**
-     * Web service operation
+     * Web service operation eliminar
      */
     @WebMethod(operationName = "eliminarAdministrador")
     public String eliminarAdministrador(@WebParam(name = "idAdministrador") int idAdministrador) {
         administradordaoimpl.eliminarAdministrador(idAdministrador);
         return "El administrador ha sido eliminado";
     }
-    
-    /**
-     * Web service operation
-     */
+
     @WebMethod(operationName = "eliminarCliente")
     public String eliminarCliente(@WebParam(name = "idCliente") int idCliente) {
         clienteDaoImpl.eliminarCliente(idCliente);
         return "El cliente ha sido eliminado";
     }
 
+    @WebMethod(operationName = "eliminarProducto")
+    public String eliminarProducto(@WebParam(name = "idProducto") int idProducto) {
+        productoDaoImpl.eliminarProducto(idProducto);
+        return "El cliente ha sido eliminado";
+    }
+
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "registrarCliente")
-    public String registrarCliente(@WebParam(name = "dniCliente") String dniCliente, @WebParam(name = "nombresCliente") String nombresCliente, @WebParam(name = "apellidosCliente") String apellidosCliente, @WebParam(name = "direccionCliente") String direccionCliente, @WebParam(name = "telefonoCliente") String telefonoCliente, @WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passCliente") String passCliente) {
-        cliente.setDniCliente(dniCliente);
-        cliente.setNombresCliente(nombresCliente);
-        cliente.setApellidosCliente(apellidosCliente);
-        cliente.setDireccionCliente(direccionCliente);
-        cliente.setTelefonoCliente(telefonoCliente);
-        cliente.setEmailCliente(emailCliente);
-        cliente.setPassCliente(passCliente);
-        clienteDaoImpl.registrarCliente(cliente);
-        return "El cliente ha sido registraddo";
-    }
-
 }
