@@ -5,8 +5,8 @@
  */
 package org.demo.soap;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
+//import java.sql.SQLException;
+//import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -152,8 +152,8 @@ public class WSConversion {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "actualizarDatos")
-    public String actualizarDatos(@WebParam(name = "idAdministrador") int idAdministrador, @WebParam(name = "dniAdministrador") String dniAdministrador, @WebParam(name = "nombresAdministrador") String nombresAdministrador, @WebParam(name = "apellidosAdministrador") String apellidosAdministrador, @WebParam(name = "addresAdministrador") String addresAdministrador, @WebParam(name = "telefonoAdministrador") String telefonoAdministrador, @WebParam(name = "userAdministrador") String userAdministrador, @WebParam(name = "passAdministrador") String passAdministrador) {
+    @WebMethod(operationName = "actualizarDatosAdministrador")
+    public String actualizarDatosAdministrador(@WebParam(name = "idAdministrador") int idAdministrador, @WebParam(name = "dniAdministrador") String dniAdministrador, @WebParam(name = "nombresAdministrador") String nombresAdministrador, @WebParam(name = "apellidosAdministrador") String apellidosAdministrador, @WebParam(name = "addresAdministrador") String addresAdministrador, @WebParam(name = "telefonoAdministrador") String telefonoAdministrador, @WebParam(name = "userAdministrador") String userAdministrador, @WebParam(name = "passAdministrador") String passAdministrador) {
         administrador.setIdAdministrador(idAdministrador);
         administrador.setDniAdministrador(dniAdministrador);
         administrador.setNombresAdministrador(nombresAdministrador);
