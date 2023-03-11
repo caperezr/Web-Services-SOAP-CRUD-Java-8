@@ -49,6 +49,10 @@ public class main {
             System.out.println("");
         }
         
+        for (int i = 0; i < pdaoimp.buscarProductoNombre("Pr").size(); i++) {
+            System.out.println(""+pdaoimp.buscarProductoNombre("Pr").get(i).toString());
+            
+        }
         //System.out.println(""+pdaoimp.eliminarProducto(63));
         //System.out.println(""+pdaoimp.actualizarStockProducto(62, 50));
 

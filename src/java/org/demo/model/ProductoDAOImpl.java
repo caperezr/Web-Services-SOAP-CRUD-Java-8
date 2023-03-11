@@ -47,7 +47,7 @@ public class ProductoDAOImpl implements ProductoDAO {
     @Override
     public List<Producto> buscarProductoNombre(String nombreProducto) {
         String sql = "SELECT PK_ID_PRODUCTO, NOMBRE_PRODUCTO, IMAGEN_PRODUCTO, DESCRIPCION_PRODUCTO, "
-                + "PRECIO_PRODUCTO, STOCK_PRODUCTO FROM TB_PRODCUTO "
+                + "PRECIO_PRODUCTO, STOCK_PRODUCTO FROM TB_PRODUCTO "
                 + "WHERE ESTADO_PRODUCTO = 1 AND NOMBRE_PRODUCTO LIKE '%" + nombreProducto + "%'";
         List<Producto> listaProductoNombre = new ArrayList<>();
         try (Connection con = Conexion.getConnection();
