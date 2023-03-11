@@ -23,9 +23,9 @@ import org.demo.model.ProductoDAOImpl;
  *
  * @author cris7
  */
-@WebService(serviceName = "WSConversion")
+@WebService(serviceName = "WSCrud")
 @Stateless()
-public class WSConversion {
+public class WSCrud {
 
 //    /**
 //     * Web service operation
