@@ -26,45 +26,45 @@ import org.demo.model.ClienteDAOImpl;
 @Stateless()
 public class WSConversion {
 
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "DecToBin")
-    public String DecToBin(@WebParam(name = "numero") int numero) {
-        String binario = "";
-        while (numero > 0) {
-            binario = numero % 2 + binario;
-            numero /= 2;
-        }
-        //TODO write your implementation code here:
-        return binario;
-    }
-
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "BinToDec")
-    public String BinToDec(@WebParam(name = "numBin") int numBin) {
-        int dec = 0;
-        int pot = 0;
-        //TODO write your implementation code here:
-        while (numBin > 0) {
-            int dig = numBin % 10;
-            dec += dig * Math.pow(2, pot);
-            pot++;
-            numBin /= 10;
-        }
-        return dec + "";
-    }
-
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "Saludo")
-    public String Saludo(@WebParam(name = "nombre") String nombre, @WebParam(name = "apellido") String apellido) {
-        //TODO write your implementation code here:
-        return "Hola, " + nombre + ", " + apellido + ". Bienvenido¡";
-    }
+//    /**
+//     * Web service operation
+//     */
+//    @WebMethod(operationName = "DecToBin")
+//    public String DecToBin(@WebParam(name = "numero") int numero) {
+//        String binario = "";
+//        while (numero > 0) {
+//            binario = numero % 2 + binario;
+//            numero /= 2;
+//        }
+//        //TODO write your implementation code here:
+//        return binario;
+//    }
+//
+//    /**
+//     * Web service operation
+//     */
+//    @WebMethod(operationName = "BinToDec")
+//    public String BinToDec(@WebParam(name = "numBin") int numBin) {
+//        int dec = 0;
+//        int pot = 0;
+//        //TODO write your implementation code here:
+//        while (numBin > 0) {
+//            int dig = numBin % 10;
+//            dec += dig * Math.pow(2, pot);
+//            pot++;
+//            numBin /= 10;
+//        }
+//        return dec + "";
+//    }
+//
+//    /**
+//     * Web service operation
+//     */
+//    @WebMethod(operationName = "Saludo")
+//    public String Saludo(@WebParam(name = "nombre") String nombre, @WebParam(name = "apellido") String apellido) {
+//        //TODO write your implementation code here:
+//        return "Hola, " + nombre + ", " + apellido + ". Bienvenido¡";
+//    }
 
     /**
      * Web service operation
