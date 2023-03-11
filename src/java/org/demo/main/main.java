@@ -55,6 +55,10 @@ public class main {
         }
         //System.out.println(""+pdaoimp.eliminarProducto(63));
         //System.out.println(""+pdaoimp.actualizarStockProducto(62, 50));
+        Administrador a = new Administrador();
+        a.setNombresAdministrador("Cristhian");
+        a.build();
+        System.out.println(""+a.build().toString());
 
     }
 

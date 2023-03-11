@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/soap/WSCrud.java</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/web/index.html</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/main/main.java</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/model/AdministradorDAO.java</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/model/Producto.java</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/model/ProductoDAOImpl.java</file>
+            <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/model/AdministradorDAOImpl.java</file>
             <file>file:/C:/Users/cris7/OneDrive/Documentos/NetBeansProjects/WebServicesCRUD/src/java/org/demo/model/ProductoDAO.java</file>
         </group>

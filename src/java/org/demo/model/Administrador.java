@@ -32,7 +32,19 @@ public class Administrador {
         this.userAdministrador = userAdministrador;
         this.passAdministrador = passAdministrador;
     }
-
+    public Administrador build() {
+            Administrador administrador = new Administrador();
+            administrador.idAdministrador = this.idAdministrador;
+            administrador.dniAdministrador = this.dniAdministrador;
+            administrador.nombresAdministrador = this.nombresAdministrador;
+            administrador.apellidosAdministrador = this.apellidosAdministrador;
+            administrador.addresAdministrador = this.addresAdministrador;
+            administrador.telefonoAdministrador = this.telefonoAdministrador;
+            administrador.userAdministrador = this.userAdministrador;
+            administrador.passAdministrador = this.passAdministrador;
+            return administrador;
+        }
+    
     public String getPassAdministrador() {
         return passAdministrador;
     }

@@ -64,6 +64,17 @@ public class WSCrud {
         clienteDaoImpl.registrarCliente(cliente);
         return "El cliente ha sido registraddo";
     }
+    
+    @WebMethod(operationName = "agregarProducto")
+    public String agregarProducto(@WebParam(name = "nombreProducto") String nombreProducto, @WebParam(name = "urlProducto") String urlProducto, @WebParam(name = "descripcionProducto") String descripcionProducto, @WebParam(name = "precioProducto") double precioProducto, @WebParam(name = "stockProducto") int stockProducto) {
+        producto.setNombreProducto(nombreProducto);
+        producto.setUrlProducto(urlProducto);
+        producto.setDescripcionProducto(descripcionProducto);
+        producto.setPrecioProducto(precioProducto);
+        producto.setStockProducto(stockProducto);
+        productoDaoImpl.agregarNuevoProducto(producto);
+        return "El cliente ha sido registraddo";
+    }
 //###############################################################################
 
     /**
@@ -154,6 +165,8 @@ public class WSCrud {
         administradordaoimpl.actualizarAdministrador(administrador);
         return "El administrador ha sido actualizado";
     }
+    
+     
 
     @WebMethod(operationName = "actualizarDatosCliente")
     public String actualizarDatosCliente(@WebParam(name = "idCliente") int idCliente, @WebParam(name = "dniCliente") String dniCliente, @WebParam(name = "nombresCliente") String nombresCliente, @WebParam(name = "apellidosCliente") String apellidosCliente, @WebParam(name = "direccionCliente") String direccionCliente, @WebParam(name = "telefonoCliente") String telefonoCliente, @WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passwordCliente") String passwordCliente) {
@@ -167,6 +180,24 @@ public class WSCrud {
         cliente.setPassCliente(passwordCliente);
         clienteDaoImpl.actualizarCliente(cliente);
         return "El cliente ha sido actualizado";
+    }
+    
+    @WebMethod(operationName = "actualizarProducto")
+    public String actualizarProducto(@WebParam(name = "idProducto") int idProducto, @WebParam(name = "nombreProducto") String nombreProducto, @WebParam(name = "urlProducto") String urlProducto, @WebParam(name = "descripcionProducto") String descripcionProducto, @WebParam(name = "precioProducto") double precioProducto, @WebParam(name = "stockProducto") int stockProducto) {
+        producto.setIdProducto(idProducto);
+        producto.setNombreProducto(nombreProducto);
+        producto.setUrlProducto(urlProducto);
+        producto.setDescripcionProducto(descripcionProducto);
+        producto.setPrecioProducto(precioProducto);
+        producto.setStockProducto(stockProducto);
+        productoDaoImpl.actualizarProducto(producto);
+        return "El producto se ha actualizado";
+    }
+    
+    @WebMethod(operationName = "actualizarStockProducto")
+    public String actualizarStockProducto(@WebParam(name = "idProducto") int idProducto, @WebParam(name = "stockProducto") int stockProducto) {
+        productoDaoImpl.actualizarStockProducto(idProducto, stockProducto);
+        return "El stock del producto se ha actualizado";
     }
 //###############################################################################
 
