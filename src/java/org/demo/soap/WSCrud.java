@@ -166,8 +166,6 @@ public class WSCrud {
         return "El administrador ha sido actualizado";
     }
     
-     
-
     @WebMethod(operationName = "actualizarDatosCliente")
     public String actualizarDatosCliente(@WebParam(name = "idCliente") int idCliente, @WebParam(name = "dniCliente") String dniCliente, @WebParam(name = "nombresCliente") String nombresCliente, @WebParam(name = "apellidosCliente") String apellidosCliente, @WebParam(name = "direccionCliente") String direccionCliente, @WebParam(name = "telefonoCliente") String telefonoCliente, @WebParam(name = "emailCliente") String emailCliente, @WebParam(name = "passwordCliente") String passwordCliente) {
         cliente.setIdCliente(idCliente);
