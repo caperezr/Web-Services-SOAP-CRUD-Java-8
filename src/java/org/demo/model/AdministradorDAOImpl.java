@@ -44,9 +44,9 @@ public class AdministradorDAOImpl implements AdministradorDAO {
     }
 
     @Override
-    public List<Administrador> listarAdministrador(int estado) {
+    public List<Administrador> listarAdministrador() {
         String sql = "SELECT PK_ID_ADMINISTRADOR, DNI_ADMINISTRADOR, NOMBRES_ADMINISTRADOR, APELLIDOS_ADMINISTRADOR,"
-                + "DIRECCION_ADMINISTRADOR,TELEFONO_ADMINISTRADOR, ADMI_ADMINISTRADOR, PASSWORD_ADMINISTRADOR FROM TB_ADMINISTRADOR WHERE ESTADO_ADMINISTRADOR=" + estado;
+                + "DIRECCION_ADMINISTRADOR,TELEFONO_ADMINISTRADOR, ADMI_ADMINISTRADOR, PASSWORD_ADMINISTRADOR FROM TB_ADMINISTRADOR WHERE ESTADO_ADMINISTRADOR=1";
         List<Administrador> listaAdministrador = new ArrayList<>();
         try (Connection con = Conexion.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);

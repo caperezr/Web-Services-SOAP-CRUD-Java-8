@@ -106,7 +106,7 @@ public class WSCrud {
      */
     @WebMethod(operationName = "listarAdministrador")
     public List<Administrador> listarAdministrador() {
-        return administradordaoimpl.listarAdministrador(1);
+        return administradordaoimpl.listarAdministrador();
     }
 
     @WebMethod(operationName = "listarCliente")
