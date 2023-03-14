@@ -95,7 +95,7 @@ public class AdministradorDAOImpl implements AdministradorDAO {
 //        return administrador;
 //    }
     @Override
-    public Administrador listarId(int id) {
+    public Administrador listarAdministradorId(int id) {
         String sql = "SELECT PK_ID_ADMINISTRADOR, DNI_ADMINISTRADOR, NOMBRES_ADMINISTRADOR, APELLIDOS_ADMINISTRADOR,"
                 + "DIRECCION_ADMINISTRADOR,TELEFONO_ADMINISTRADOR, ADMI_ADMINISTRADOR, PASSWORD_ADMINISTRADOR FROM TB_ADMINISTRADOR WHERE PK_ID_ADMINISTRADOR=" + id;
         try (Connection con = Conexion.getConnection();

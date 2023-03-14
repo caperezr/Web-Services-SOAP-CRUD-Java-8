@@ -1,5 +1,7 @@
 package org.demo.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author cris7
@@ -96,5 +98,57 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "idCliente=" + idCliente + ", dniCliente=" + dniCliente + ", nombresCliente=" + nombresCliente + ", apellidosCliente=" + apellidosCliente + ", direccionCliente=" + direccionCliente + ", telefonoCliente=" + telefonoCliente + ", emailCliente=" + emailCliente + ", passCliente=" + passCliente + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + this.idCliente;
+        hash = 23 * hash + Objects.hashCode(this.dniCliente);
+        hash = 23 * hash + Objects.hashCode(this.nombresCliente);
+        hash = 23 * hash + Objects.hashCode(this.apellidosCliente);
+        hash = 23 * hash + Objects.hashCode(this.direccionCliente);
+        hash = 23 * hash + Objects.hashCode(this.telefonoCliente);
+        hash = 23 * hash + Objects.hashCode(this.emailCliente);
+        hash = 23 * hash + Objects.hashCode(this.passCliente);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (this.idCliente != other.idCliente) {
+            return false;
+        }
+        if (!Objects.equals(this.dniCliente, other.dniCliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombresCliente, other.nombresCliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellidosCliente, other.apellidosCliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.direccionCliente, other.direccionCliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefonoCliente, other.telefonoCliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.emailCliente, other.emailCliente)) {
+            return false;
+        }
+        return Objects.equals(this.passCliente, other.passCliente);
+    }
+    
+    
     
 }

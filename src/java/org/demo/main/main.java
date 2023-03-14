@@ -6,10 +6,13 @@
 package org.demo.main;
 
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 import org.demo.model.Administrador;
 import org.demo.model.AdministradorDAOImpl;
 import org.demo.model.Cliente;
 import org.demo.model.ClienteDAOImpl;
+import org.demo.model.Pago;
 import org.demo.model.Producto;
 import org.demo.model.ProductoDAOImpl;
 
@@ -40,26 +43,43 @@ public class main {
         ProductoDAOImpl pdaoimp = new ProductoDAOImpl();
         //Producto p = new Producto(1, "Prod 1", "http://localhost:8080/WebServicesCRUD/img/img_1.png", "Producto 1", 10, 20);
         //System.out.println(""+pdaoimp.agregarNuevoProducto(p));
-        
+
         pdaoimp.listarProductos();
-        
+
         for (int i = 0; i < pdaoimp.listarProductos().size(); i++) {
-            System.out.println("El id del producto es: "+pdaoimp.listarProductos().get(i).getIdProducto());
-            System.out.println(""+pdaoimp.listarProductos().get(i).toString());
+            System.out.println("El id del producto es: " + pdaoimp.listarProductos().get(i).getIdProducto());
+            System.out.println("" + pdaoimp.listarProductos().get(i).toString());
             System.out.println("");
         }
-        
+
         for (int i = 0; i < pdaoimp.buscarProductoNombre("Pr").size(); i++) {
-            System.out.println(""+pdaoimp.buscarProductoNombre("Pr").get(i).toString());
-            
+            System.out.println("" + pdaoimp.buscarProductoNombre("Pr").get(i).toString());
+
         }
         //System.out.println(""+pdaoimp.eliminarProducto(63));
         //System.out.println(""+pdaoimp.actualizarStockProducto(62, 50));
         Administrador a = new Administrador();
         a.setNombresAdministrador("Cristhian");
         a.build();
-        System.out.println(""+a.build().toString());
+        System.out.println("" + a.build().toString());
+        System.out.println("");
+        System.out.println("");
 
+//        Pago pago = new Pago(1, "Efectivo", "Efectivo", "Efectivo");
+//        Pago pago1 = new Pago(1, "Efectivo", "Efectivo", "Efectivo");
+//        System.out.println(pago.equals(pago1));
+
+        Set<Pago> pagos = new HashSet<>();
+        pagos.add(new Pago(1, "Efectivo1", "Efectivo", "Efectivo"));
+
+        if (pagos.contains(new Pago(1, "Efectivo", "Efectivo", "Efectivo"))) {
+            System.out.println("El pago ya existe en la colección.");
+        }
+
+        Administrador a1 = new Administrador(1, "71234545", "nombre", "nombre", "nombre", "nombre", "nombre", "nombre");
+        Administrador a2 = new Administrador(1, "71234545", "nombre", "nombre", "nombre", "nombre", "nombre", "nombre");
+        System.out.println(a1.equals(a2));
+        
     }
 
 }

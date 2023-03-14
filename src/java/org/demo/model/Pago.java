@@ -5,6 +5,8 @@
  */
 package org.demo.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author cris7
@@ -62,6 +64,28 @@ public class Pago {
         return "Pago{" + "idPago=" + idPago + ", tipoPago=" + tipoPago + ", nombrePago=" + nombrePago + ", descripcionPago=" + descripcionPago + '}';
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Pago)) {
+            return false;
+        }
+        Pago other = (Pago) obj;
+        return idPago == other.idPago && tipoPago.equals(other.tipoPago) && nombrePago.equals(other.nombrePago)
+                && descripcionPago.equals(other.descripcionPago);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + this.idPago;
+        hash = 59 * hash + Objects.hashCode(this.tipoPago);
+        hash = 59 * hash + Objects.hashCode(this.nombrePago);
+        hash = 59 * hash + Objects.hashCode(this.descripcionPago);
+        return hash;
+    }
     
     
 }

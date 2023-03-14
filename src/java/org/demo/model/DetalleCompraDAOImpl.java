@@ -44,5 +44,22 @@ public class DetalleCompraDAOImpl implements DetalleCompraDAO{
         }
         return listaDetalleCompra;
     }
+
+    @Override
+    public int guardarDetalleCompra(DetalleCompra detalleCompra) {
+        int rowAdded = 0;
+        String sql = "INSERT INTO TB_DETALLE_COMPRA(FK_ID_PRODUCTO, FK_ID_COMPRA, CANTIDAD_COMPRA, PRECIO_COMPRA) VALUES (?,?,?,?)";
+        try (Connection con = Conexion.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, detalleCompra.getIdProducto());
+            ps.setInt(2, detalleCompra.getIdCompra());
+            ps.setInt(3, detalleCompra.getCantidadProducto());
+            ps.setDouble(4, detalleCompra.getPrecioCompra());
+            rowAdded = ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.err.println("Error al Registrar el detalle de compra: " + ex.getMessage());
+        }
+        return rowAdded;
+    }
     
 }

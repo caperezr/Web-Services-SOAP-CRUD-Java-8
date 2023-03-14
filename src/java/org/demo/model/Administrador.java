@@ -5,6 +5,8 @@
  */
 package org.demo.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author cris7
@@ -112,6 +114,59 @@ public class Administrador {
     @Override
     public String toString() {
         return "Administrador{" + "idAdministrador=" + idAdministrador + ", dniAdministrador=" + dniAdministrador + ", nombresAdministrador=" + nombresAdministrador + ", apellidosAdministrador=" + apellidosAdministrador + ", addresAdministrador=" + addresAdministrador + ", telefonoAdministrador=" + telefonoAdministrador + ", userAdministrador=" + userAdministrador + ", passAdministrador=" + passAdministrador + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.idAdministrador;
+        hash = 79 * hash + Objects.hashCode(this.dniAdministrador);
+        hash = 79 * hash + Objects.hashCode(this.nombresAdministrador);
+        hash = 79 * hash + Objects.hashCode(this.apellidosAdministrador);
+        hash = 79 * hash + Objects.hashCode(this.addresAdministrador);
+        hash = 79 * hash + Objects.hashCode(this.telefonoAdministrador);
+        hash = 79 * hash + Objects.hashCode(this.userAdministrador);
+        hash = 79 * hash + Objects.hashCode(this.passAdministrador);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Administrador other = (Administrador) obj;
+        if (this.idAdministrador != other.idAdministrador) {
+            return false;
+        }
+        if (!Objects.equals(this.dniAdministrador, other.dniAdministrador)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombresAdministrador, other.nombresAdministrador)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellidosAdministrador, other.apellidosAdministrador)) {
+            return false;
+        }
+        if (!Objects.equals(this.addresAdministrador, other.addresAdministrador)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefonoAdministrador, other.telefonoAdministrador)) {
+            return false;
+        }
+        if (!Objects.equals(this.userAdministrador, other.userAdministrador)) {
+            return false;
+        }
+        if (!Objects.equals(this.passAdministrador, other.passAdministrador)) {
+            return false;
+        }
+        return true;
     }
     
     

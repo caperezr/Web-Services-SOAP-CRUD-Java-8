@@ -12,6 +12,7 @@ import java.util.List;
  * @author cris7
  */
 public interface DetalleCompraDAO {
+    public int guardarDetalleCompra(DetalleCompra detalleCompra);
     public List<DetalleCompra> listarDetalleCompra(int idCompra);
     
 }
